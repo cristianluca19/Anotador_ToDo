@@ -1,11 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Todo from '../Todo/Todo';
 
-export function Todos() {
+export default function Todos() {
+  const Todos= useSelector(store=>store)
+  console.log('aca',Todos)
+
   return (
     <div>
-      Componente Todos
+      {Todos.map(el => {
+          return (
+            <Link key={el.id} to={`/edit/${el.id}`}>
+              <Todo title={el.title} />
+            </Link>
+          )
+        }
+      )}
     </div>
   )
-};
-
-export default Todos;
+}
