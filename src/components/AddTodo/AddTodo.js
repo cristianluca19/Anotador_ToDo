@@ -1,62 +1,81 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as action from '../../actions/index'
 
 export default function AddTodo() {
   const dispatch = useDispatch()
-  const esto = useSelector(store=> store)
+  const [total, steTotal] = useState(false)
   const [input, setInput] = useState({
-    date: '',
+    init_date: '',
+    end_date:'',
     description: '',
     place: '',
-    title: ''
+    title: '',
+    created:''
   });
-
+  console.log(input)
+  useEffect(() => {
+    const {init_date, end_date,description,place,title,created} = input
+   if(init_date && end_date && description && place && title && created){
+     steTotal(true)
+   }
+    
+  },[total,input]);
   function handleChange(event) {
     setInput({ ...input, [event.target.name]: event.target.value })
   }
 
   function handleOnSubmit(event) {
     event.preventDefault();
-    console.log('anda')
     dispatch(action.addTodo(input))
   }
   console.log(esto)
   return (
   
-    <form class="form-column aling-conten-center">
-  <div class="form-flex justify-content-center">
-    <div class="form-group col-md-5 m-2">
-      <label for="inputEmail4">Titulo</label>
-      <input type="title" class="form-control"  placeholder="Comida"/>
+    <form onSubmit={handleOnSubmit}>
+  <div className="form-row">
+    <div className="form-group col-md-5 m-2">
+      <label >Titulo</label>
+      <input type="text" className="form-control" name='title' placeholder="Comprar" onChange={handleChange}/>
     </div>
-    <div class="form-group col-md-5 m-2">
-      <label for="inputPassword4">Detalle</label>
-      <textarea class="form-control" aria-label="With textarea" placeholder="Comprar carne"></textarea>
+    <div className="form-group col-md-3 m-2">
+      <label >Categoria</label>
+      <select  name='place' className="form-control" onChange={handleChange}>
+        <option defaultValue ='' >Elija una</option>
+        <option value="comida">Comida</option>
+        <option value='Pagos'>Pagos</option>
+        <option value='Copmras'>Compras</option>
+        <option value='Estudio'>Estudio</option>
+        <option value='Macotas'>Mascotas</option>
+        <option value="Citas">Citas</option>
+        <option value='Otras'>Otra</option>
+      </select>
     </div>
   </div>
-  <div class="form-row aling-item-center">
-  <div class="form-group m-2 ">
-    <label >Creado</label>
-    <input type="date" class="form-control"/>
+  <div className="form-group col-md-8">
+    <label >Detalle</label>
+    <textarea type="text" name='description' className="form-control"  placeholder="Comprar carne" onChange={handleChange}/>
   </div>
-  <div class="form-group m-2">
-    <label >Eliminar</label>
-    <input type="date" class="form-control"/>
+ 
+  <div className="form-row">
+    <div className="form-group col-md-2">
+      <label >Inicio</label>
+      <input type="date" className="form-control" name='init_date' onChange={handleChange}/>
+    </div>
+    <div className="form-group col-md-2">
+      <label >Fin</label>
+      <input type="date" className="form-control" name='end_date' onChange={handleChange}/>
+    </div>
+    <div className="form-group col-md-2">
+      <label >Creada por:</label>
+      <input type="text" className="form-control" name='created' onChange={handleChange}/>
+    </div>
   </div>
+  <div className="form-group">
   </div>
-
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  {total && <button type="submit" className="btn btn-primary" >Crear</button>}
+  
 </form>
-
-// =============================================================================================
-//     <form onSubmit={handleOnSubmit}>
-//       <input name='title' onChange={handleChange}></input>
-//       <textarea name='description' onChange={handleChange}></textarea>
-//       <input name='place' onChange={handleChange}></input>
-//       <input name='date' onChange={handleChange}></input>
-//       <button type='submit'>Send</button>
-//     </form>
   )
 };
 
