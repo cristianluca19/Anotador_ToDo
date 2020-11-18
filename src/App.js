@@ -11,7 +11,7 @@ export function App() {
   return (
     <div className="App">
       <Route path='/' render={()=><Nav/>}/>
-      <Route exact path='/' render={()=><Home/>}/>
+      <Route exact path='/home' render={()=><Home/>}/>
       <Route exact path='/add' render={()=><AddTodo/>}/>
     </div>
   );

@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 import Todo from '../Todo/Todo';
 
 export default function Todos() {
-  const Todos= useSelector(store=>store)
-  console.log('aca',Todos)
+  const todos= useSelector(store=>store)
+
 
   return (
     <div>
-      {Todos.map(el => {
-          return (
+      {todos.map(el => 
+          <div>
             <Link key={el.id} to={`/edit/${el.id}`}>
-              <Todo title={el.title} />
+              <Todo target={el} />
             </Link>
-          )
-        }
+          </div>
+        
       )}
     </div>
   )

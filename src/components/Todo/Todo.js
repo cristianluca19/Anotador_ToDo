@@ -1,13 +1,21 @@
 import React from 'react';
-import {useSelector } from 'react-redux';
 
-export function Todo(title) {
 
-console.log('esatdo en todo',title)
+export function Todo(target) {
+
   return (
-    <div>
-      {title}
+    <div class="card text-center m-4">
+    <div class="card-header">
+    {target.target.title}
     </div>
+  <div class="card-body">
+    <h5 class="card-title">{target.target.place}</h5>
+  <p class="card-text">{target.target.description}</p>
+  </div>
+  <div class="card-footer text-muted">
+    Creada por {target.target.created} el dia 
+  </div>
+</div>
   )
 };
 

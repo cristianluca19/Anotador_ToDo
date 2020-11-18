@@ -10,7 +10,8 @@ const todos = (state = initialState, action) => {
     case ADD_TODO:
       return [
         ...state,{
-          date: action.payload.date,
+          init_date: new Date(),
+          end_date: action.payload.end_date,
           description: action.payload.description,
           id: action.payload.id,
           place: action.payload.place,

@@ -6,14 +6,14 @@ export default function AddTodo() {
   const dispatch = useDispatch()
   const [total, steTotal] = useState(false)
   const [input, setInput] = useState({
-    init_date: '',
-    end_date:'',
+    init_date: new Date,
+    end_date: new Date,
     description: '',
     place: '',
     title: '',
     created:''
   });
-  console.log(input)
+ 
   useEffect(() => {
     const {init_date, end_date,description,place,title,created} = input
    if(init_date && end_date && description && place && title && created){
@@ -29,7 +29,6 @@ export default function AddTodo() {
     event.preventDefault();
     dispatch(action.addTodo(input))
   }
-  console.log(esto)
   return (
   
     <form onSubmit={handleOnSubmit}>
@@ -42,11 +41,11 @@ export default function AddTodo() {
       <label >Categoria</label>
       <select  name='place' className="form-control" onChange={handleChange}>
         <option defaultValue ='' >Elija una</option>
-        <option value="comida">Comida</option>
+        <option value="Comida">Comida</option>
         <option value='Pagos'>Pagos</option>
-        <option value='Copmras'>Compras</option>
+        <option value='Compras'>Compras</option>
         <option value='Estudio'>Estudio</option>
-        <option value='Macotas'>Mascotas</option>
+        <option value='Mascotas'>Mascotas</option>
         <option value="Citas">Citas</option>
         <option value='Otras'>Otra</option>
       </select>
@@ -58,14 +57,14 @@ export default function AddTodo() {
   </div>
  
   <div className="form-row">
-    <div className="form-group col-md-2">
+    {/* <div className="form-group col-md-3">
       <label >Inicio</label>
       <input type="date" className="form-control" name='init_date' onChange={handleChange}/>
     </div>
-    <div className="form-group col-md-2">
+    <div className="form-group col-md-3">
       <label >Fin</label>
       <input type="date" className="form-control" name='end_date' onChange={handleChange}/>
-    </div>
+    </div> */}
     <div className="form-group col-md-2">
       <label >Creada por:</label>
       <input type="text" className="form-control" name='created' onChange={handleChange}/>
