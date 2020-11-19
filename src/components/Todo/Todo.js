@@ -7,10 +7,10 @@ export function Todo(target) {
       <div class='card-header'>{target.target.title}</div>
       <div class='card-body'>
         <h5 class='card-title'>{target.target.place}</h5>
-        <p class='card-text'>{target.target.description}</p>
+        <p class='card-text'>{target.target.description.substring(20) + '...' }</p>
       </div>
       <div class='card-footer text-muted'>
-        Creada por {target.target.created} el dia {inicio.getDate()}/
+        Creada por <h6>{target.target.created}</h6> el dia {inicio.getDate()}/
         {inicio.getMonth()}/{inicio.getFullYear()}
       </div>
     </div>

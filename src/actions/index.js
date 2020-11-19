@@ -6,7 +6,7 @@ export const addTodo = (payload) => {
     return {
         type: 'ADD_TODO',
         payload: {
-            status: 'Todo',
+            status: 'todo',
             title: payload.title,
             id: todoId++,
             init_date: payload.init_date,

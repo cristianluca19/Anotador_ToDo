@@ -8,7 +8,6 @@ const initialState =[];
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
-      console.log(action.payload.created)
       return [
         ...state,{
           init_date: new Date(),
