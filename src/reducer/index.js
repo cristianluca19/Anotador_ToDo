@@ -8,15 +8,16 @@ const initialState =[];
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
+      console.log(action.payload.created)
       return [
         ...state,{
           init_date: new Date(),
-          end_date: action.payload.end_date,
           description: action.payload.description,
           id: action.payload.id,
           place: action.payload.place,
           status: action.payload.status,
-          title: action.payload.title
+          title: action.payload.title,
+          created: action.payload.created
         }
       ]
     case 'RemoveTodo':

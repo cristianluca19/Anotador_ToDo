@@ -9,9 +9,10 @@ export const addTodo = (payload) => {
             status: 'Todo',
             title: payload.title,
             id: todoId++,
-            date: payload.date,
+            init_date: payload.init_date,
             description: payload.description,
             place: payload.place,
+            created: payload.created
         }
     }
 };

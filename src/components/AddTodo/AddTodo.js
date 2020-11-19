@@ -4,20 +4,20 @@ import * as action from '../../actions/index'
 
 export default function AddTodo() {
   const dispatch = useDispatch()
-  const [total, steTotal] = useState(false)
+  const [total, setTotal] = useState(false)
   const [input, setInput] = useState({
+    created:'',
     init_date: new Date,
-    end_date: new Date,
     description: '',
     place: '',
     title: '',
-    created:''
   });
+  console.log(input.created)
  
   useEffect(() => {
-    const {init_date, end_date,description,place,title,created} = input
-   if(init_date && end_date && description && place && title && created){
-     steTotal(true)
+    const {init_date, description,place,title,created} = input
+   if(init_date  && description && place && title && created){
+     setTotal(true)
    }
     
   },[total,input]);
@@ -28,10 +28,13 @@ export default function AddTodo() {
   function handleOnSubmit(event) {
     event.preventDefault();
     dispatch(action.addTodo(input))
+    document.getElementById("miForm").reset()
+    window.alert('Nota agregada')
+    
   }
   return (
   
-    <form onSubmit={handleOnSubmit}>
+    <form onSubmit={handleOnSubmit} id="miForm">
   <div className="form-row">
     <div className="form-group col-md-5 m-2">
       <label >Titulo</label>
@@ -57,14 +60,6 @@ export default function AddTodo() {
   </div>
  
   <div className="form-row">
-    {/* <div className="form-group col-md-3">
-      <label >Inicio</label>
-      <input type="date" className="form-control" name='init_date' onChange={handleChange}/>
-    </div>
-    <div className="form-group col-md-3">
-      <label >Fin</label>
-      <input type="date" className="form-control" name='end_date' onChange={handleChange}/>
-    </div> */}
     <div className="form-group col-md-2">
       <label >Creada por:</label>
       <input type="text" className="form-control" name='created' onChange={handleChange}/>
@@ -73,6 +68,7 @@ export default function AddTodo() {
   <div className="form-group">
   </div>
   {total && <button type="submit" className="btn btn-primary" >Crear</button>}
+  
   
 </form>
   )
