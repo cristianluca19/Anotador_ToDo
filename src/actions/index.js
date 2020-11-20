@@ -1,9 +1,11 @@
 export const ADD_TODO = 'ADD_TODO'
+export const REVIEWS ='REVIEWS'
+export const COMPLETE='COMPLETE'
+export const REMOVE ='REMOVE'
 
 let todoId = 1
 
 export const addTodo = (payload) => {
-    console.log('pauload', payload)
     return {
         type: 'ADD_TODO',
         payload: {
@@ -18,23 +20,39 @@ export const addTodo = (payload) => {
     }
 };
 
-export const removeTodo = (payload) => {
+export const remove = (payload) => {
     return {
-        type: 'RemoveTodo',
+        type: 'REMOVE',
         payload
     };
 }
 
-export const toInProgress = (payload) => {
+export const reviews = (payload) => {
     return {
-        type: 'ToInProgress',
-        payload
+        type: 'REVIEWS',
+        payload: {
+            status: 'reviews',
+            title: payload.title,
+            id: payload.id,
+            description: payload.description,
+            place: payload.place,
+            created: payload.created,
+            point: payload.point
+        }
     };
 }
 
-export const toDone = (payload) => {
+export const complete = (payload) => {
     return {
-        type: 'ToDone',
-        payload
+        type: 'COMPLETE',
+        payload: {
+            status: 'complete',
+            title: payload.title,
+            id: payload.id,
+            description: payload.description,
+            place: payload.place,
+            created: payload.created,
+            point: payload.point
+        }
     };
 }

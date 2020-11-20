@@ -4,7 +4,7 @@ import Todos from '../Todos/Todos'
 
 export function Home() {
   const tarjetas = useSelector(store=>store)
-  let done=[]
+  let complete=[]
   let reviews=[]
   let todo=[]
   
@@ -16,14 +16,14 @@ export function Home() {
     case 'reviews':
       reviews.push(t)
       break
-    case 'done' :
-      done.push(t)
+    case 'complete' :
+      complete.push(t)
       break}
     })
     
     const target_todo=  todo.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase=' text-center bg-info text-dark'/></li> }) 
-    const target_reviews= reviews.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='card text-center card-header bg-success text-dark'/></li>}) 
-    const target_done = done.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='card text-center card-header bg-danger text-dark'/></li>}) 
+    const target_reviews= reviews.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='text-center bg-success text-dark'/></li>}) 
+    const target_complete = complete.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase=' text-center  bg-danger text-dark'/></li>}) 
   return (
 
     <div className="container">
@@ -36,11 +36,15 @@ export function Home() {
         </div>
         <div className="col col-4">
         <div className='card text-center card-header'>Revisar</div>
+        <ul className="list-group list-group-flush">
         {target_reviews}
+        </ul>
         </div>
         <div className="col col-4">
         <div className='card text-center card-header'> Completas </div>
-        {target_done}
+        <ul className="list-group list-group-flush">
+        {target_complete}
+        </ul>
         </div>
     </div>
 </div>

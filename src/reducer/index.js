@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/index'
+import { ADD_TODO, REVIEWS , COMPLETE, REMOVE} from '../actions/index'
 
 
 
@@ -20,21 +20,39 @@ const todos = (state = initialState, action) => {
           point: action.payload.point
         }
       ]
-    case 'RemoveTodo':
+    case REMOVE:
       const tmp = state.filter(a => action.payload !== a.id)
       return [
         ...tmp
       ]
-    case 'ToInProgress':
-      return state.map(el => ({
-        ...el,
-        status: 'InProgress'
-      }))
-    case 'ToDone':
-      return state.map(el => ({
-        ...el,
-        status: 'Done'
-      }))
+    case REVIEWS:
+      const aux = state.filter(a => action.payload.id !== a.id)
+      return[
+        ...aux,{
+          init_date: new Date(),
+          description: action.payload.description,
+          id: action.payload.id,
+          place: action.payload.place,
+          status: action.payload.status,
+          title: action.payload.title,
+          created: action.payload.created,
+          point: action.payload.point
+        }
+      ]
+    case COMPLETE:
+      const auxi = state.filter(a => action.payload.id !== a.id)
+      return[
+        ...auxi,{
+          init_date: new Date(),
+          description: action.payload.description,
+          id: action.payload.id,
+          place: action.payload.place,
+          status: action.payload.status,
+          title: action.payload.title,
+          created: action.payload.created,
+          point: action.payload.point
+        }
+      ]
     default:
       return state;
   }

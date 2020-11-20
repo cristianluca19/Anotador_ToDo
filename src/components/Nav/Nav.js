@@ -1,8 +1,6 @@
 import React from "react";
-
-import { Link } from "react-router-dom";
 import Notas from "../../img/Notas.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import * as action from "../../actions/index";
 
@@ -94,12 +92,6 @@ export default function Nav() {
         </div>
         <div className=' navbar-collapse' id='navbarSupportedContent'>
           <div className='navbar-nav mr-sm-auto '>
-            <Link to='/home'>
-              <button className='btn btn-outline-info m-2' role='button'>
-                <i className='fas fa-clipboard'> Ver</i>
-              </button>
-            </Link>
-
             <button
               className='btn btn-outline-info m-2'
               role='button'
