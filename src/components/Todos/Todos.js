@@ -46,7 +46,7 @@ export default function Todos({el, clase}) {
       if(el.status==='reviews'){
         if (result.isConfirmed) {
           swalWithBootstrapButtons.fire(
-            'Movido!',
+            'Movido!', 
             'Tu nota se envio a Completo.',
             'success'
           )
@@ -68,7 +68,7 @@ export default function Todos({el, clase}) {
   return (
     <div >
       <div  >
-      <button type="button" className={"btn btn-lg btn-block" + clase} onClick={()=>handleEdit()}>
+      <button type="button" className={clase} onClick={()=>handleEdit()}>
         {el.title}
       </button>
       </div>

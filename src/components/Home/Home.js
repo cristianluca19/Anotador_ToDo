@@ -21,9 +21,9 @@ export function Home() {
       break}
     })
     
-    const target_todo=  todo.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase=' text-center bg-info text-dark'/></li> }) 
-    const target_reviews= reviews.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='text-center bg-success text-dark'/></li>}) 
-    const target_complete = complete.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase=' text-center  bg-danger text-dark'/></li>}) 
+    const target_todo=  todo.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase=' btn btn-block text-center bg-info text-dark'/></li> }) 
+    const target_reviews= reviews.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='btn btn-block text-center bg-success text-dark'/></li>}) 
+    const target_complete = complete.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='btn btn-block text-center  bg-danger text-dark'/></li>}) 
   return (
 
     <div className="container">
