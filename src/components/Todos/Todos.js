@@ -7,10 +7,10 @@ import * as action from "../../actions/index";
 export default function Todos({el, clase}) {
   const dispatch = useDispatch();
   let estado = ''
-  if (el.status=='todo'){
+  if (el.status==='todo'){
     estado = 'Mover a Revisar'
   }
-  if (el.status=='reviews'){
+  if (el.status==='reviews'){
     estado = 'Mover a Completo'
   }
   function handleEdit(){
@@ -24,12 +24,12 @@ export default function Todos({el, clase}) {
     
     swalWithBootstrapButtons.fire({
       title:'<h1>'+ el.title+ '</h1>',  
-      html:'<h3>'+el.description+'</h3>' + '<br>'+
+      html:'<h3>'+  el.description + '</h3>' + '<br>'+
       '<h6> Categoria: ' + el.place + ', con un puntaje de : '+ el.point +'</h6>',
       footer:'Creado por:  ' + el.created + ' el dia: '+ el.init_date.getDate()+'/'+el.init_date.getMonth()+'/'+el.init_date.getYear(),
 
       showCancelButton: true,
-      confirmButtonText: estado + ' <i class="fa fa-arrow-right"></i>',
+      confirmButtonText: estado + ' <i className="fa fa-arrow-right"></i>',
       cancelButtonText: 'Eliminar',
       reverseButtons: true
     }).then((result) => {

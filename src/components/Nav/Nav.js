@@ -1,48 +1,48 @@
-import React from "react";
-import Notas from "../../img/Notas.png";
-import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
-import * as action from "../../actions/index";
+import React from 'react';
+import Notas from '../../img/Notas.png';
+import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
+import * as action from '../../actions/index';
 
 export default function Nav() {
   const dispatch = useDispatch();
   function handleAdd() {
     Swal.mixin({
-      input: "text",
-      confirmButtonText: "Next &rarr;",
+      input: 'text',
+      confirmButtonText: 'Next &rarr;',
       showCancelButton: true,
-      progressSteps: ["1", "2", "3", "4", "5"],
+      progressSteps: ['1', '2', '3', '4', '5'],
     })
       .queue([
         {
-          title: "Titulo de la Nota",
-          text: "Ej: Comprar",
+          title: 'Titulo de la Nota',
+          text: 'Ej: Comprar',
         },
         {
-          input: "textarea",
-          inputLabel: "Detalle",
-          inputPlaceholder: "Comprar carne para el asado del domingo...",
+          input: 'textarea',
+          inputLabel: 'Detalle',
+          inputPlaceholder: 'Comprar carne para el asado del domingo...',
           inputAttributes: {
-            "aria-label": "Type your message here",
+            'aria-label': 'Type your message here',
           },
         },
         {
-          title: "Seleccione categoria",
-          input: "select",
+          title: 'Seleccione categoria',
+          input: 'select',
           inputOptions: {
-            Compras: "Compras",
-            Comida: "Comida",
-            Pagos: "Pagos",
-            Estudio: "Estudio",
-            Mascotas: "Mascotas",
-            Citas: "Citas",
-            Otras: "Otras",
+            Compras: 'Compras',
+            Comida: 'Comida',
+            Pagos: 'Pagos',
+            Estudio: 'Estudio',
+            Mascotas: 'Mascotas',
+            Citas: 'Citas',
+            Otras: 'Otras',
           },
         },
         {
-          title: "Que tan importante es?",
-          icon: "question",
-          input: "range",
+          title: 'Que tan importante es?',
+          icon: 'question',
+          input: 'range',
           inputAttributes: {
             min: 1,
             max: 100,
@@ -51,9 +51,9 @@ export default function Nav() {
           inputValue: 1,
         },
         {
-          title: "Ingrese su nombre",
-          input: "text",
-          inputPlaceholder: "Cristian",
+          title: 'Ingrese su nombre',
+          input: 'text',
+          inputPlaceholder: 'Cristian',
         },
       ])
       .then((result) => {
@@ -62,13 +62,13 @@ export default function Nav() {
           console.log(answers);
           if (answers.includes(false)) {
             Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Te falto completar algun dato!",
-              footer: "<a href>Why do I have this issue?</a>",
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Te falto completar algun dato!',
+              footer: '<a href>Why do I have this issue?</a>',
             });
           } else {
-            Swal.fire("Buen Trabajo!", "Su nota fue agregada!", "success");
+            Swal.fire('Buen Trabajo!', 'Su nota fue agregada!', 'success');
             dispatch(action.addTodo(answers));
           }
         }
@@ -94,7 +94,7 @@ export default function Nav() {
           <div className='navbar-nav mr-sm-auto '>
             <button
               className='btn btn-outline-info m-2'
-              role='button'
+              type='button'
               onClick={() => handleAdd()}>
               <i className='fas fa-notes-medical'> Agregar</i>
             </button>
