@@ -1,4 +1,12 @@
-Aplicacion de Notas Creada por Cristian Lucatti
+## Aplicacion de Notas Creada por Cristian Lucatti
+
+## Desarrollada con:
+- React
+- Redux
+- Boostrap
+- Sweetalert
+
+
 
 https://www.linkedin.com/in/cristian-lucatti/
 

@@ -2,6 +2,7 @@ export const ADD_TODO = 'ADD_TODO'
 export const REVIEWS ='REVIEWS'
 export const COMPLETE='COMPLETE'
 export const REMOVE ='REMOVE'
+export const TODO= 'TODO'
 
 let todoId = 1
 
@@ -47,6 +48,20 @@ export const complete = (payload) => {
         type: 'COMPLETE',
         payload: {
             status: 'complete',
+            title: payload.title,
+            id: payload.id,
+            description: payload.description,
+            place: payload.place,
+            created: payload.created,
+            point: payload.point
+        }
+    };
+}
+export const todo = (payload) => {
+    return {
+        type: 'TODO',
+        payload: {
+            status: 'todo',
             title: payload.title,
             id: payload.id,
             description: payload.description,

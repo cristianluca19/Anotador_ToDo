@@ -13,6 +13,9 @@ export default function Todos({el, clase}) {
   if (el.status==='reviews'){
     estado = 'Mover a Completo'
   }
+  if(el.status ==='complete'){
+    estado = 'Mover a todo'
+  }
   function handleEdit(){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -51,6 +54,16 @@ export default function Todos({el, clase}) {
             'success'
           )
           dispatch(action.complete(el))
+        }
+      }
+      if(el.status==='complete'){
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Movido!', 
+            'Tu nota se envio a Para ver.',
+            'success'
+          )
+          dispatch(action.todo(el))
         }
       } else if (
         /* Read more about handling dismissals below */

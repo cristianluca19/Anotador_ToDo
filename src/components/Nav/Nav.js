@@ -1,6 +1,7 @@
 import React from 'react';
 import Notas from '../../img/Notas.png';
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom'
 import Swal from 'sweetalert2';
 import * as action from '../../actions/index';
 
@@ -90,16 +91,19 @@ export default function Nav() {
             Notes App
           </h5>
         </div>
-        <div className=' navbar-collapse' id='navbarSupportedContent'>
-          <div className='navbar-nav mr-sm-auto '>
+        <div className='container text-center h-100 d-flex justify-content-center align-items-center'>
+          <div className='col-3'>
             <button
               className='btn btn-outline-info m-2'
               type='button'
               onClick={() => handleAdd()}>
-              <i className='fas fa-notes-medical'> Agregar</i>
+              <i className='fas fa-notes-medical'> Agregar Nota</i>
             </button>
           </div>
         </div>
+          <Link to='/about'>
+        <button className='btn btn-outline-dark'>About</button>
+      </Link>
       </nav>
     </div>
   );
