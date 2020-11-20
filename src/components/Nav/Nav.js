@@ -101,8 +101,11 @@ export default function Nav() {
             </button>
           </div>
         </div>
+        <Link to='/'>
+        <button className='btn btn-outline-success m-2'>Home</button>
+      </Link>
           <Link to='/about'>
-        <button className='btn btn-outline-dark'>About</button>
+        <button className='btn btn-outline-success m-2'>About</button>
       </Link>
       </nav>
     </div>
