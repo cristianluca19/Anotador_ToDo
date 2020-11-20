@@ -3,16 +3,17 @@ export const ADD_TODO = 'ADD_TODO'
 let todoId = 1
 
 export const addTodo = (payload) => {
+    console.log('pauload', payload)
     return {
         type: 'ADD_TODO',
         payload: {
             status: 'todo',
-            title: payload.title,
+            title: payload[0],
             id: todoId++,
-            init_date: payload.init_date,
-            description: payload.description,
-            place: payload.place,
-            created: payload.created
+            description: payload[1],
+            place: payload[2],
+            created: payload[4],
+            point: payload[3]
         }
     }
 };

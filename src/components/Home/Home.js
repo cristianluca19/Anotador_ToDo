@@ -7,11 +7,7 @@ export function Home() {
   let done=[]
   let reviews=[]
   let todo=[]
-  console.log('tarjetas', tarjetas)
-  console.log('done', done)
-  console.log('todo', todo)
-  console.log('reviews', reviews)
-
+  
   tarjetas.map( t=> 
     {switch(t.status){
     case 'todo':
@@ -23,25 +19,28 @@ export function Home() {
     case 'done' :
       done.push(t)
       break}
-  })
- 
+    })
+    
+    const target_todo=  todo.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase=' text-center bg-info text-dark'/></li> }) 
+    const target_reviews= reviews.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='card text-center card-header bg-success text-dark'/></li>}) 
+    const target_done = done.map(target=>{return <li className="list-group-item" key={target.id}><Todos el={target} clase='card text-center card-header bg-danger text-dark'/></li>}) 
   return (
 
-    <div class="container">
-    <div class="row">
-        <div class="col col-4">
-        <div class='card text-center card-header'>Para ver</div>
-        <ul class="list-group list-group-flush">
-         {todo.map(el=>{return <li class="list-group-item" key={el.title}><Todos el={el} clase=' text-center bg-warning text-dark'/></li> }) }
+    <div className="container">
+    <div className="row">
+        <div className="col col-4">
+        <div className='card text-center card-header'>Para ver</div>
+        <ul className="list-group list-group-flush">
+         {target_todo}
         </ul>
         </div>
-        <div class="col col-4">
-        <div class='card text-center card-header'>Revisar</div>
-        {reviews.map(t=>{return <Todos el={t} clase='card text-center card-header bg-success text-dark'/>}) }
+        <div className="col col-4">
+        <div className='card text-center card-header'>Revisar</div>
+        {target_reviews}
         </div>
-        <div class="col col-4">
-        <div class='card text-center card-header'> Completas </div>
-        {done.map(t=>{return <Todos el={t} clase='card text-center card-header bg-danger text-dark'/>}) }
+        <div className="col col-4">
+        <div className='card text-center card-header'> Completas </div>
+        {target_done}
         </div>
     </div>
 </div>

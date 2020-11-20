@@ -16,7 +16,8 @@ const todos = (state = initialState, action) => {
           place: action.payload.place,
           status: action.payload.status,
           title: action.payload.title,
-          created: action.payload.created
+          created: action.payload.created,
+          point: action.payload.point
         }
       ]
     case 'RemoveTodo':
