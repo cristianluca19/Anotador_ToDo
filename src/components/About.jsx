@@ -7,7 +7,7 @@ export default function About() {
         <div>
             <br/>
             <br/>
-            <h1>Weather App</h1>
+            <h1>Note App</h1>
 
             <p>Esta aplicacion fur diseñada por Cristian Lucatti con lo aprendido en el Bootcamp de Henry</p>
 
