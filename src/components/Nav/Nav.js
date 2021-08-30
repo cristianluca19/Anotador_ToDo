@@ -88,7 +88,7 @@ export default function Nav() {
         />
         <div className='container'>
           <h5 className='row justify-content-center justify-content-md-start m-2'>
-            Notes App
+            Notas App
           </h5>
         </div>
         <div className='container text-center h-100 d-flex justify-content-center align-items-center'>
